@@ -13,6 +13,8 @@ import java.util.Map;
 
 import static org.junit.Assert.*;
 
+//TODO: Implementar el uso de una clase Suite para los Tests de Usuarios
+
 public class GetClientesTest {
 
     private static final ClienteModel modelTest = TestUtil.buildTestCliente();
