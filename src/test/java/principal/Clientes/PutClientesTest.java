@@ -96,13 +96,14 @@ public class PutClientesTest {
     @Test
     public void testDuplicateFieldsUpdate() {
         Gson gson = new Gson();
+
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
         HttpEntity<String> body = new HttpEntity<>(gson.toJson(modelTest), headers);
         RestTemplate request = new RestTemplate();
         try {
             var response = request.exchange(URI, HttpMethod.PUT, body, Map.class);
-            fail("Expected Exception: org.springframework.web.client.HttpClientErrorException$Forbidden");
+            fail("Expected Exception: org.springframework.web.client.HttpClientErrorException$Conflict");
         } catch (HttpClientErrorException.Conflict e) {
             var response = gson.fromJson(e.getResponseBodyAsString(), Map.class);
             assertEquals(409, (int) (double) response.get("status"));
