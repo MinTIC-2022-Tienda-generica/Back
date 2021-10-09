@@ -93,4 +93,27 @@ public class UsuarioModel {
                 ", password='" + password + '\'' +
                 '}';
     }
+
+    /* Este metodo no compara las contraseñas debido a que si pudiera comparar dos hashes de contraseña sin conocer la contraseña original,
+     * entonces si un atacante descifró una contraseña en el sistema, sabría instantáneamente las contraseñas de todos los usuarios que están
+     * usando esa contraseña, sin ningún trabajo adicional. */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        } else if (o == null) {
+            return false;
+        } else
+            // type check and cast
+            if (getClass() != o.getClass()) {
+                return false;
+            } else {
+                final UsuarioModel a = (UsuarioModel) o;
+                // field comparison
+                return a.getCedulaUsuario().equals(((UsuarioModel) o).getCedulaUsuario())
+                        && a.getUsuario().equals(((UsuarioModel) o).getUsuario())
+                        && a.getNombreUsuario().equals(((UsuarioModel) o).getNombreUsuario())
+                        && a.getEmailUsuario().equals(((UsuarioModel) o).getEmailUsuario());
+            }
+    }
 }
