@@ -1,6 +1,7 @@
 package principal;
 
 import principal.models.ClienteModel;
+import principal.models.ProveedorModel;
 import principal.models.UsuarioModel;
 
 public class TestUtil {
@@ -23,6 +24,17 @@ public class TestUtil {
         res.setCedulaUsuario(-1L);
         res.setNombreUsuario("test test");
         res.setPassword("password test");
+
+        return res;
+    }
+
+    public static ProveedorModel buildTestProveedor(){
+        ProveedorModel res = new ProveedorModel();
+        res.setCiudadProveedor("test");
+        res.setDireccionProveedor("testCarreratest");
+        res.setNitProveedor(-1L);
+        res.setNombreProveedor("test test");
+        res.setTelefonoProveedor("-1");
 
         return res;
     }

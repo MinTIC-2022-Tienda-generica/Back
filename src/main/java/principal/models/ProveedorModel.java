@@ -4,6 +4,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.util.Objects;
 
 @Entity
 @Table(name = "proveedores")
@@ -87,5 +88,22 @@ public class ProveedorModel {
                 ", nombreProveedor='" + nombreProveedor + '\'' +
                 ", telefonoProveedor='" + telefonoProveedor + '\'' +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        } else if (o == null) {
+            return false;
+        } else
+            // type check and cast
+            if (getClass() != o.getClass()) {
+                return false;
+            } else {
+                final ProveedorModel a = (ProveedorModel) o;
+                // field comparison
+                return Objects.equals(a, o);
+            }
     }
 }
