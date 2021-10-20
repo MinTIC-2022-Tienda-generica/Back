@@ -9,7 +9,7 @@ import java.util.Objects;
 
 @Entity
 @Table(name = "productos")
-public class ProductosModel {
+public class ProductoModel {
 
 
     @Id
@@ -77,26 +77,26 @@ public class ProductosModel {
     /**
      * Remplaza unicamente los valores no nulos del objeto con los valores correspondietes del parametro
      *
-     * @param productosModel Objeto del cual extraer los datos
+     * @param productoModel Objeto del cual extraer los datos
      */
-    public void copyNotNullValues(ProductosModel productosModel) {
-        if (productosModel.getCodigoProducto() != null) {
-            this.setCodigoProducto(productosModel.getCodigoProducto());
+    public void copyNotNullValues(ProductoModel productoModel) {
+        if (productoModel.getCodigoProducto() != null) {
+            this.setCodigoProducto(productoModel.getCodigoProducto());
         }
-        if (productosModel.getNombreProducto() != null) {
-            this.setNombreProducto(productosModel.getNombreProducto());
+        if (productoModel.getNombreProducto() != null) {
+            this.setNombreProducto(productoModel.getNombreProducto());
         }
-        if (productosModel.getNitProveedor() != null) {
-            this.setNitProveedor(productosModel.getNitProveedor());
+        if (productoModel.getNitProveedor() != null) {
+            this.setNitProveedor(productoModel.getNitProveedor());
         }
-        if (productosModel.getPrecioCompra() != null) {
-            this.setPrecioCompra(productosModel.getPrecioCompra());
+        if (productoModel.getPrecioCompra() != null) {
+            this.setPrecioCompra(productoModel.getPrecioCompra());
         }
-        if (productosModel.getIvaCompra() != null) {
-            this.setIvaCompra(productosModel.getIvaCompra());
+        if (productoModel.getIvaCompra() != null) {
+            this.setIvaCompra(productoModel.getIvaCompra());
         }
-        if (productosModel.getPrecioVenta() != null) {
-            this.setPrecioVenta(productosModel.getPrecioVenta());
+        if (productoModel.getPrecioVenta() != null) {
+            this.setPrecioVenta(productoModel.getPrecioVenta());
         }
     }
 
@@ -123,7 +123,7 @@ public class ProductosModel {
             if (getClass() != o.getClass()) {
                 return false;
             } else {
-                final ProductosModel a = (ProductosModel) o;
+                final ProductoModel a = (ProductoModel) o;
                 // field comparison
                 return Objects.equals(a, o);
             }
