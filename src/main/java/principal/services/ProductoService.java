@@ -28,6 +28,8 @@ public class ProductoService {
     }
 
     public Map<String, Object> createProducto(ProductoModel[] productosModel) {
+        deleteProductos();
+
         if (productosModel.length == 0) {
             Map<String, Object> zeroLengthError = new HashMap<>();
             zeroLengthError.put("status", 400);
@@ -57,8 +59,6 @@ public class ProductoService {
             }
 
             productoRepository.save(productoModel);
-
-
         }
 
         Map<String, Object> response = new HashMap<>();
@@ -96,6 +96,14 @@ public class ProductoService {
         return response;
     }
 
+    public Map<String, Object> deleteProductos() {
+        Map<String, Object> response = new HashMap<>();
+        productoRepository.deleteAll();
+        response.put("status", 200);
+        response.put("type", "ok");
+
+        return response;
+    }
 
     public Map<String, Object> deleteProducto(long codigo) {
         Map<String, Object> response = new HashMap<>();

@@ -40,9 +40,9 @@ public class ProductoController {
         return ResponseEntity.status((int) res.getOrDefault("status", 500)).body(res);
     }
 
-    @PutMapping
-    public ResponseEntity<Map<String, Object>> updateProducto(@RequestBody ProductoModel productoModel) {
-        var res = productoService.updateProducto(productoModel);
+    @DeleteMapping
+    public ResponseEntity<Map<String, Object>> deleteProductos() {
+        var res = productoService.deleteProductos();
 
         return ResponseEntity.status((int) res.getOrDefault("status", 500)).body(res);
     }
