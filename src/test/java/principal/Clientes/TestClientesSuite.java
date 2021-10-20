@@ -11,6 +11,8 @@ import java.util.Map;
 
 import static org.junit.Assert.*;
 
+//TODO: Implementar el uso de la suite en los test de CLientes :P
+
 public abstract class TestClientesSuite {
     protected static final ClienteModel modelTest = TestUtil.buildTestCliente();
     protected static final String URI = "http://localhost:8000/clientes";
