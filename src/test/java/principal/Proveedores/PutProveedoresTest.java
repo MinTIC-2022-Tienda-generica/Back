@@ -83,7 +83,7 @@ public class PutProveedoresTest extends TestProveedoresSuite {
             var response = gson.fromJson(e.getResponseBodyAsString(), Map.class);
             assertEquals(409, (int) (double) response.get("status"));
             assertEquals("already exist", response.get("type"));
-            ///assertEquals("telefonoProveedor", response.get("conflictParam"));
+            assertEquals("telefonoProveedor", response.get("conflictParam"));
         }
     }
 

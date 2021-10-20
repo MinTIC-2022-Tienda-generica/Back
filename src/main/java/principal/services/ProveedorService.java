@@ -46,7 +46,6 @@ public class ProveedorService {
         Map<String, Object> response = new HashMap<>();
 
         var nullFieldErrorResponse = checkNullFields(proveedorModel);
-        System.out.println(nullFieldErrorResponse);
         if (nullFieldErrorResponse != null && nullFieldErrorResponse.get("nullField").equals("nitProveedor")) {
             return nullFieldErrorResponse;
         }
@@ -55,10 +54,7 @@ public class ProveedorService {
         if (currentData != null) {
             var uniqueErrorResponse = checkUniqueFields(proveedorModel);
             if (uniqueErrorResponse != null && !uniqueErrorResponse.getOrDefault("conflictParam", null).equals("nitProveedor")) {
-                response.put("status", 409);
-                response.put("type", "already exist");
-
-                return response;
+                return uniqueErrorResponse;
             }
 
             currentData.copyNotNullValues(proveedorModel);

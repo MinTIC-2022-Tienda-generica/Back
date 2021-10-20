@@ -140,7 +140,6 @@ public class ClienteService {
             conflictParam = "telefonoCliente";
         }
 
-
         if (!conflictParam.equals("")) {
             Map<String, Object> result = new HashMap<>();
             result.put("status", 409);
@@ -150,6 +149,5 @@ public class ClienteService {
         }
 
         return null;
-
     }
 }
