@@ -21,8 +21,12 @@ public class VentasService {
     @Autowired
     ClienteRepository clienteRepository;
 
-    public ArrayList<VentasModel> getProductos() {
+    public ArrayList<VentasModel> getVentas() {
         return (ArrayList<VentasModel>) ventasRepository.findAll();
+    }
+
+    public ArrayList<VentasModel> getVentas(Long cedulaCliente) {
+        return (ArrayList<VentasModel>) ventasRepository.findByCedulaCliente(cedulaCliente);
     }
 
     public Map<String, Object> createVenta(VentasModel ventasModel) {
@@ -72,6 +76,9 @@ public class VentasService {
         }
         if (ventasModel.getCedulaUsuario() == null) {
             nullField = "cedulaUsuario";
+        }
+        if (ventasModel.getCodigoVenta() == null) {
+            nullField = "codigoVenta";
         }
 
         if (!nullField.equals("")) {

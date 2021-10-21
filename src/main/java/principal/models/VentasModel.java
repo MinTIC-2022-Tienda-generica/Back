@@ -1,18 +1,18 @@
 package principal.models;
 
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.util.Objects;
 
 @Entity
 @Table(name = "ventas")
-
-
 public class VentasModel {
 
     @Id
     @Column(name = "codigo_venta", unique = true, nullable = false)
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long codigoVenta;
     @Column(name = "cedula_cliente", nullable = false)
     private Long cedulaCliente;
