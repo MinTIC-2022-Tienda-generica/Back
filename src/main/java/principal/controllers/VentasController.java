@@ -33,11 +33,6 @@ public class VentasController {
         return ResponseEntity.status(200).body(ventasService.getVentas(cedulaCliente));
     }
 
-    //    @GetMapping("/{cedulaCliente}/detalles")
-//    public ResponseEntity<ArrayList<VentasModel>> getDetalleVentasByCedulaCliente(@PathVariable Long cedulaCliente) {
-//        return ResponseEntity.status(200).body(detalleVentasService.getDetallesVentas(cedulaCliente));
-//    }
-
     @GetMapping("/detalles")
     public ResponseEntity<ArrayList<DetalleVentasModel>> getDetalleVentasByCedulaCliente() {
         return ResponseEntity.status(200).body(detalleVentasService.getDetallesVentas());
@@ -57,6 +52,9 @@ public class VentasController {
         var detalles = gson.fromJson(gson.toJson(ventasModel.get("detalles")), DetalleVentasModel[].class);
 
         var responseVenta = ventasService.createVenta(venta);
+        if ((int) responseVenta.get("status") != 201) {
+            return ResponseEntity.status((int) responseVenta.getOrDefault("status", 500)).body(responseVenta);
+        }
         var responseDetalles = detalleVentasService.createDetallesVenta(detalles);
 
         Map<String, Object> response = new HashMap<>();
