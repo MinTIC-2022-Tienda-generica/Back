@@ -4,17 +4,13 @@ import com.google.gson.Gson;
 import org.junit.Test;
 import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
-import principal.TestUtil;
 import principal.models.ClienteModel;
 
 import java.util.Map;
 
 import static org.junit.Assert.*;
 
-public class DeleteClientesTest {
-
-    private static final ClienteModel modelTest = TestUtil.buildTestCliente();
-    private static final String URI = "http://localhost:8000/clientes";
+public class DeleteClientesTest extends TestClientesSuite {
 
     @Test
     public void testBasicDelete() {
