@@ -9,7 +9,6 @@ import principal.models.ProveedorModel;
 import java.util.HashMap;
 import java.util.Map;
 
-//TODO: Implementar el test Delete de los proveedores.
 
 public abstract class TestProveedoresSuite {
     protected static final String URI = "http://localhost:8000/proveedores";

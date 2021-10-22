@@ -9,7 +9,6 @@ import principal.models.ClienteModel;
 import java.util.HashMap;
 import java.util.Map;
 
-//TODO: Implementar el uso de la suite en los test de CLientes :P
 
 public abstract class TestClientesSuite {
     protected static final ClienteModel modelTest = TestUtil.buildTestCliente();

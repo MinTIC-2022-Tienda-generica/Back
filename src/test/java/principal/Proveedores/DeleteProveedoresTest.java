@@ -1,16 +1,16 @@
-package principal.Clientes;
+package principal.Proveedores;
 
 import com.google.gson.Gson;
 import org.junit.Test;
 import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
-import principal.models.ClienteModel;
+import principal.models.ProveedorModel;
 
 import java.util.Map;
 
 import static org.junit.Assert.*;
 
-public class DeleteClientesTest extends TestClientesSuite {
+public class DeleteProveedoresTest extends TestProveedoresSuite {
 
     @Test
     public void testBasicDelete() {
@@ -25,23 +25,23 @@ public class DeleteClientesTest extends TestClientesSuite {
         }
 
 
-        ClienteModel __modelTest = new ClienteModel();
-        __modelTest.setCedulaCliente(-10L);
-        __modelTest.setDireccionCliente("test 10");
-        __modelTest.setNombreCliente("test 10");
-        __modelTest.setEmailCliente("test 10");
-        __modelTest.setTelefonoCliente("test 10");
+        ProveedorModel __proveedortest = new ProveedorModel();
+        __proveedortest.setNitProveedor(-10L);
+        __proveedortest.setCiudadProveedor("test 10");
+        __proveedortest.setDireccionProveedor("test 10");
+        __proveedortest.setNombreProveedor("test 10");
+        __proveedortest.setTelefonoProveedor("test 10");
 
 
-        var client = request.postForEntity(URI, __modelTest, Map.class);
+        var client = request.postForEntity(URI, __proveedortest, Map.class);
         assertNotNull(client.getBody());
         assertEquals(201, client.getBody().get("status"));
 
-        var response = request.getForEntity(URI + "/-10", ClienteModel.class);
+        var response = request.getForEntity(URI + "/-10", ProveedorModel.class);
         assertNotNull(response.getBody());
-        assertEquals("test 10", response.getBody().getNombreCliente());
-        assertEquals(-10, (int) (double) response.getBody().getCedulaCliente());
-        assertEquals("test 10", response.getBody().getEmailCliente());
+        assertEquals("test 10", response.getBody().getNombreProveedor());
+        assertEquals(-10, (int) (double) response.getBody().getNitProveedor());
+        assertEquals("test 10", response.getBody().getTelefonoProveedor());
 
         request.delete(URI + "/-10");
 
